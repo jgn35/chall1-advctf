@@ -1,0 +1,12 @@
+[Unit]
+Description=Challenge Voting fraud
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/var/www/localcheck
+ExecStart=/usr/bin/gunicorn -b :8101 chall-contest:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
